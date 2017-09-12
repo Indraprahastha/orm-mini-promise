@@ -15,18 +15,26 @@ class Project {
 
   static findById(params) {
     return new Promise((resolve,reject)=>{
-      db.all(`SELECT * FROM Project WHERE id ${params}`,(err,dataProject)=>{
+      db.all(`SELECT * FROM Project WHERE id = '${params}'`,(err,dataProject)=>{
         resolve(dataProject)
       })
-      
     })
+
   }
 
-  static findWhere() {}
+  static findWhere() {
+
+  }
 
   static create() {}
 
-  static update() {}
+  static update(params,param) {
+    return new Promise((resolve,reject)=>{
+      db.run(`UPDATE Project SET nama=${params.nama},status=${params.status} WHERE id = '${param}'`,()=>{
+        resolve()
+      })
+    })
+  }
 
   static destroy() {}
 

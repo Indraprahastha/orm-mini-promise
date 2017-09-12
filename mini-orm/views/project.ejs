@@ -8,17 +8,24 @@
     <table>
       <thead>
         <tr>
-          <th></th>
-          <th></th>
-          <th></th>
+          <th>Id</th>
+          <th>Nama</th>
+          <th>Status</th>
+          <th>Id Supervisor</th>
         </tr>
       </thead>
       <tbody>
+        <%dataProject.forEach((dataProject)=>{%>
+
+
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><%=dataProject.id%></td>
+          <td><%=dataProject.nama%></td>
+          <td><%=dataProject.status%></td>
+          <td><a href="/project/edit/<%=dataProject.id%>">Edit</a></td>
         </tr>
+
+      <%})%>
       </tbody>
     </table>
   </body>
